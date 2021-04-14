@@ -1,13 +1,23 @@
 <template>
   <section>
-      <p>Booking Item</p>
+      <h2>Name:{{booking.name}}</h2>
+      <p>Email:{{booking.email}}</p>
+      <p>Checked in? {{booking.checked_in}}</p>
+      
+      <button>Delete Booking</button>
   </section>
 </template>
 
 <script>
-export default {
+import {eventBus} from '../main.js'
 
+
+export default {
+  name: 'booking',
+  props: ['booking'],
+  methods: {},
 }
+
 </script>
 
 <style>

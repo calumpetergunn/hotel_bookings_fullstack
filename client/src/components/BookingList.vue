@@ -1,15 +1,28 @@
 <template>
-  <section>
-      <p>Booking List</p>
+  <section id="bookingList">
+      <booking v-for="booking in bookings" :booking="booking" />
   </section>
 </template>
 
 <script>
-export default {
+import Booking from './Booking.vue';
 
+export default {
+  name: 'booking-list',
+  components: {
+    'booking': Booking
+  },
+  props: ['bookings']
 }
 </script>
 
-<style>
+<style scoped>
+
+#bookingList {
+  display: flex;
+  padding: 10px;
+  justify-content: space-evenly
+}
+
 
 </style>

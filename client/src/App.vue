@@ -34,6 +34,9 @@ export default {
     fetchBookings() {
       BookingService.getBookings()
       .then(bookings => this.bookings = bookings);
+      eventBus.$on('booking-added', (booking) => {
+        this.bookings.push(booking)
+      })
     }
   }
 }
