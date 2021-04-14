@@ -27,6 +27,13 @@ export default {
   mounted() {
     this.fetchBookings();
 
+    eventBus.$on('delete-booking', id => {
+      BookingService.deleteBooking(id)
+      .then(() => {
+        const index = this.bookings.findIndex(booking => booking._id === id);
+        this.bookings.splice(index, 1);
+      })
+    })
 
   },
 

@@ -40,9 +40,8 @@ export default {
     }
   },
 
-  method: {
-        addBooking(event){
-      event.preventDefault()
+  methods: {
+        addBooking(){
       const booking = {
         name: this.name,
         email: this.email,
@@ -50,6 +49,9 @@ export default {
         }
       BookingService.postBooking(booking)
       .then(res => eventBus.$emit('booking-added', res))
+      this.name = '',
+      this.email = '',
+      this.checked_in = false
     }
   }
 }

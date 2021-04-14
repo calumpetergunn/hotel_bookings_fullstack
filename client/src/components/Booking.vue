@@ -4,7 +4,7 @@
       <p>Email:{{booking.email}}</p>
       <p>Checked in? {{booking.checked_in}}</p>
       
-      <button>Delete Booking</button>
+      <button v-on:click="handleDelete(booking._id)">Delete Booking</button>
   </section>
 </template>
 
@@ -15,11 +15,15 @@ import {eventBus} from '../main.js'
 export default {
   name: 'booking',
   props: ['booking'],
-  methods: {},
+  methods: {
+    handleDelete(id){
+      eventBus.$emit('delete-booking', id)
+    }
+  },
 }
 
 </script>
 
-<style>
+<style scoped>
 
 </style>
