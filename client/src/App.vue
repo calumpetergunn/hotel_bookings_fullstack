@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <br>
     <h1>Hotel Booking!</h1>
-    <booking-form/>
-    <booking-list :bookings="bookings"/>
+      <booking-form/>
+      <booking-list :bookings="bookings"/>
   </div>
 </template>
 
@@ -33,8 +34,16 @@ export default {
         const index = this.bookings.findIndex(booking => booking._id === id);
         this.bookings.splice(index, 1);
       })
-    })
+    });
 
+    eventBus.$on('check-in-change', id => {
+      BookingService.updateBooking(id)
+      .then(() => {
+        const index = this.bookings.findIndex(booking => booking._id === id);
+        this.bookings[index].checked_in = true;
+    })
+  });
+  
   },
 
   methods: {
@@ -57,7 +66,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,117,255,1) 100%);
 }
 </style>
-
-o

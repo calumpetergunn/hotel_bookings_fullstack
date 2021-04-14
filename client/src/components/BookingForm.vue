@@ -1,24 +1,28 @@
 <template>
   <section>
       <form id="booking-form" v-on:submit.prevent="addBooking" method="post">
+        <br>
         <h2>Booking Form</h2>
         <div>
-          <label for="name">Name</label>
+          <label for="name">Name: </label>
           <input type="text" id="name"
           v-model="name" required/>
         </div>
+        <br>
         <div>
-          <label for="email">Email</label>
+          <label for="email">Email: </label>
           <input type="text" id="email"
           v-model="email" required/>
         </div>
+        <br>
         <div>
-          <label for="checked_in">Checked In</label>
+          <label for="checked_in">Checked In  </label>
           <input type="checkbox" id="checked_in"
           v-model="checked_in" />
         </div>
+        <br>
 
-        <input type="submit" value="Save"
+        <input class="button" type="submit" value="Save"
         id="save" />
         
       </form>
@@ -58,5 +62,9 @@ export default {
 </script>
 
 <style scoped>
-
+#booking-form{
+color: antiquewhite;
+background: rgb(198,0,86);
+background: radial-gradient(circle, rgba(198,0,86,1) 0%, rgba(0,117,255,1) 100%);
+}
 </style>

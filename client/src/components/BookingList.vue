@@ -20,6 +20,7 @@ export default {
 
 #bookingList {
   display: flex;
+  flex-flow: wrap;
   padding: 10px;
   justify-content: space-evenly
 }
